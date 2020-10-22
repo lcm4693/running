@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teste/components/bottom_bar.dart';
-import 'package:teste/screens/treino.dart';
 import 'package:teste/screens/historico.dart';
-import 'package:teste/screens/configuracoes.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,9 +40,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       // appBar: AppBar(
       //   title: const Text(''),
       // ),
-      body: Center(
-        child: screen,
-      ),
+      body: screen,
       bottomNavigationBar: MainBar(_atualizarTela),
     );
   }
