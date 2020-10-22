@@ -9,11 +9,21 @@ class DateUtil {
   }
 
   static String formatPadraoDate(int milliseconds) {
-    return DateUtil.formatDate(milliseconds, 'dd/MM/yyyy HH:mm:ss');
+    DateFormat formatterData = new DateFormat.yMd(Intl.defaultLocale);
+    DateFormat formatterHora = new DateFormat.Hms(Intl.defaultLocale);
+
+    return DateUtil.formatDate(milliseconds, formatterData, formatterHora);
   }
 
-  static String formatDate(int milliseconds, String padrao) {
-    final DateFormat formatter = DateFormat(padrao);
-    return formatter.format(DateTime.fromMillisecondsSinceEpoch(milliseconds));
+  static String formatDate(
+    int milliseconds,
+    DateFormat formatterData,
+    DateFormat formatterHora,
+  ) {
+    // final DateFormat formatter = DateFormat(padrao);
+    return formatterData
+            .format(DateTime.fromMillisecondsSinceEpoch(milliseconds)) +
+        ' ' +
+        formatterHora.format(DateTime.fromMillisecondsSinceEpoch(milliseconds));
   }
 }
